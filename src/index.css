@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Bree+Serif&family=Merriweather&display=swap');
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100vw;
+  overflow: hidden;
+  font-family: "Alegreya", serif;
+}
+::-webkit-scrollbar-track {
+  width: 2px;
+}
+.horizontal_scroll::-webkit-scrollbar-track {
+  height: 2px;
+}
+
+.hide_scrollbar::-webkit-scrollbar{
+  display: none;
+}
