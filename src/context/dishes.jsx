@@ -43,6 +43,9 @@ export const DishContextProvider = (Props) => {
     }
   }, [state.items]);
 
+  console.log(state,"state");
+  
+
   // code for change the selected category
   const changeCategoryId = (newValue) => {
     setState((prev) => ({ ...prev, selectedCategoryId: newValue }));
@@ -72,9 +75,26 @@ export const DishContextProvider = (Props) => {
     setState((prev) => ({ ...prev, cartData: updatedCart }));
   };
 
+  // function to add item in cart
+  function addToCart(id) {
+    setState((prevState) => {
+      const isIncluded = prevState.cartData.some((cartItem) => cartItem.dish === id);
+  
+      if (!isIncluded) {
+        return {
+          ...prevState,
+          cartData: [...prevState.cartData, { dish: id, count: 1 }],
+        };
+      }
+  
+      return prevState; 
+    });
+  }
+  
+
   return (
     <DishContext.Provider
-      value={{ state, changeCategoryId, incrementCartQty, decrementCartQty }}
+      value={{ state, changeCategoryId, incrementCartQty, decrementCartQty,addToCart }}
     >
       {children}
     </DishContext.Provider>
