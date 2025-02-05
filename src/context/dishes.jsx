@@ -43,9 +43,6 @@ export const DishContextProvider = (Props) => {
     }
   }, [state.items]);
 
-  console.log(state,"state");
-  
-
   // code for change the selected category
   const changeCategoryId = (newValue) => {
     setState((prev) => ({ ...prev, selectedCategoryId: newValue }));
